@@ -1,21 +1,14 @@
 #include<stdio.h>
 #include<math.h>
-
-void main(){
-    int aluminio = 100;
-    float pi = 3.14159;
-    double acirculo, alado, latacompleta, raio, altura, custo;
-    //medidos em metros
-    scanf("%lf",&raio );
-    scanf("%lf",&altura );
-    acirculo=(pi*(raio*raio));
-    alado = 2*(pi*(raio*altura));
-    printf("verificacao acirculo %.2lf\n", &acirculo);
-    printf("verificacao alado %.2lf\n", &alado);
-    //latacompleta=2*acirculo+alado;
-    //custo = latacompleta*aluminio;
-
-
-    printf("O VALOR DO CUSTO E = %.2lf\n", &custo);
-
+int main(){
+    int aluminio=100;
+    double ac=0, al=0, at=0, raio=0, altura=0, ct=0, pi=3.14159;
+    scanf("%lf",&raio);
+    scanf("%lf",&altura);
+    ac=(raio*raio)*pi;
+    al=(2*pi)*raio*altura;
+    at=(2*ac)+al;
+    ct=at*aluminio;
+    printf("O VALOR DO CUSTO E = %.2lf\n", ct);
+    return 0;
 }
