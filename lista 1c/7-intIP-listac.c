@@ -1,34 +1,43 @@
 #include <stdio.h>
+int main(){
+    double p1, p2, p3, p4, p5, p6, p7, p8, l1, l2, l3, l4, l5, TF, Mp, Ml, Nf, Pa, fT;
+    int matricula = 0;
+    do
+    {
+        scanf("%d", &matricula);
+        scanf("%lf %lf %lf %lf %lf %lf %lf %lf", &p1, &p2, &p3, &p4, &p5, &p6, &p7, &p8);
+        scanf("%lf %lf %lf %lf %lf %lf %lf", &l1, &l2, &l3, &l4, &l5, &TF, &Pa);
+        Mp = (p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8) / 8;
+        Ml = (l1 + l2 + l3 + l4 + l5) / 5;
+        fT = 128 - Pa;
+        Nf = ((Mp * 0.7) + (Ml * 0.15) + (TF * 0.15));
+        if (matricula != -1)
+        {
+            printf("Matricula: %d, Nota Final: %.2lf, Situacao Final: ", matricula, Nf);
+            if (Nf >= 6)
+            {
+                if (fT <= 32)
+                {
+                    printf("APROVADO\n");
+                }
+                else
+                {
+                    printf("REPROVADO POR FREQUENCIA\n");
+                }
+            }
+            else
+            {
+                if (fT <= 32)
+                {
+                    printf("REPROVADO POR NOTA\n");
+                }
+                else
+                {
+                    printf("REPROVADO POR NOTA E POR FREQUENCIA\n");
+                }
+            }
+        }
+    } while (matricula != -1);
 
-int main()
-{
-    double matricula=0;
-    double p1=0, p2=0, p3=0, p4=0, p5=0, p6=0, p7=0, p8=0, l1=0, l2=0, l3=0, l4=0, l5=0, TF=0, Mp=0, Ml=0, Nf=0, Pa=0;
-    scanf("%lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf", &matricula, &p1, &p2, &p3, &p4, &p5, &p6, &p7, &p8, &l1, &l2, &l3, &l4, &l5, &TF, &Pa);
-    Mp = ((p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8)/ 8);
-    Ml = ((l1 + l2 + l3 + l4 + l5)/5);
-    Nf = (((0.7)*Mp) + ((0.15)*Ml) + ((0.15)*TF ));
-    printf("Matricula: %lf, Nota Final: %.2lf, Situacao Final", matricula, Nf);
-    if (Nf >= 6)
-    {
-        if (Pa >= 96)
-        {
-            printf(": APROVADO");
-        }
-        else
-        {
-            printf(": REPROVADO POR FREQUENCIA");
-        }
-    }
-    else
-    {
-        if (Pa >= 96)
-        {
-            printf(": REPROVADO POR NOTA");
-        }
-        else
-        {
-            printf(": REPROVADO POR NOTA E POR FREQUENCIA");
-        }
-    }
+    return 0;
 }
