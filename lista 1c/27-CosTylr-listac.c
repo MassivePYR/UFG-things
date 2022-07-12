@@ -13,11 +13,11 @@ unsigned long long fat(int n)
 int main()
 {
     int n, i;
-    double seno=0, x;
+    double cos=0, x;
     scanf("%lf %d",&x,&n);
 
     for(i=0; i<=n; i++){
-    seno+=(pow((-1),i)*pow(x,2*i+1))/fat(2*i+1);
+    cos+=(pow((-1),i)*pow(x,2*i))/fat(2*i);
     }
-    printf("seno(%.2lf) = %.6lf\n",x ,seno);
+    printf("cosseno(%.2lf) = %.6lf\n",x ,cos);
 }

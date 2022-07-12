@@ -2,8 +2,8 @@
 int main(){
 int n,x=1,t1=1,t2=2,aux=0,final=1;
 scanf("%d",&n);
-if(n<=1){
-     printf("Campeonato Invalido!\n");
+if(n<2){
+     printf("Campeonato invalido!\n");
 }else{
     while(x!=n){
         if(t2<=n){

@@ -1,22 +1,20 @@
 #include<stdio.h>
 int main(){
-    int n,y,cont=0;
+    int n,x=2,c=0,i=1;
     scanf("%d",&n);
-    y=n-1;
-    if(n<=1){
-        printf("Numero invalido!");
-    if(n>1){
-        while (y>1){
-            if (n%y==0){
-            cont++;
+    if(n==0){printf("NAO PRIMO\n");}
+    if(n==1){printf("NAO PRIMO\n");}
+    if(n<0){printf("Numero invalido!\n");}
+    else if(n>1){
+        while(x<=n-1){
+            if(n%x==0){
+                c++;
+                x++;
+            }else{
+                x++;
             }
-            y--;  
         }
-    if(cont==0){
-            printf("PRIMO");
-        }
-
-    }
-//numero primo ou nao primo
+        if(c==0){printf("PRIMO\n");}
+        if(c>0){printf("NAO PRIMO\n");}
     }
 }
