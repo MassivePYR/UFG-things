@@ -1,36 +1,52 @@
 #include <stdio.h>
-
 int main(){
-    int k, n;
-    int resto, i = 0, aux = 0;
-    int var[1000];
-
-    while (scanf("%d", &n) != EOF){
-        if (n==0||n==1){
-            printf("%d\n",n);
-        }else{
-            while (n != 0){
-                resto = n%2;
-                var[i] = resto;
-                n/=2;
-                aux++;
-                i++;
+    int vetor[32],i,j,n,cont;
+    while(scanf("%d",&n) != EOF){
+        if(n!=0){
+        for(i=0;i<32;i++){
+            if(n%2 == 0){
+                n = n/2;
+                vetor[i] = 0;
             }
-            k = aux - 1;
-            int arr2[k];
-            for (i=0; i<aux; i++){
-                arr2[i] = var[k];
-                k--;
+            else{
+                n = (n-1)/2;
+                vetor[i] = 1;
             }
-            for (i=0; i<aux; i++){
-                printf("%d", arr2[i]);
+        }for(j=31;j>-1;j--){
+            if(vetor[j] == 1){
+                printf("1");
+                cont++;
             }
-            printf("\n");
-            for (i=0; i<aux; i++){
-                var[i] = 0;
+            else{
+                if(cont != 0){
+                    printf("0");
+                    cont++;
+                }
             }
-            aux=0;
-            i=0;
+        }
+        printf("\n"),cont=0;
+        }
+        else{
+            printf("0\n");
         }
     }
+}
+#include <stdio.h>
+#define MAX 32
+
+int main()
+{
+	int num = 15, vet_bin[MAX], i = 0, j;
+    while(scanf("%d",&num) != EOF){
+	while(num > 0)
+	{
+		vet_bin[i] = num % 2;
+		i++;
+		num = num / 2;
+	}
+	for(j = i ; j > 0; j--)
+		printf("%d", vet_bin[j]);
+	printf("\n");
+    }
+	return 0;
 }
