@@ -2,20 +2,24 @@
 #include<math.h>
 
 int main(){
-    int moduloBA=0, numVet;
-    double v1[3], v2[3], v3[3];
+    int numVet=0,i=0,j=0,cont=0;
+    double v1[3]={0}, v2[3]={0}, v3[3]={0}, moduloBA=0.00;
     scanf("%d", &numVet);
+    while (numVet>0){
     if(numVet>=2||numVet<=1000){
-        for(int i=0;i<numVet;i++){
-            scanf("%lf",&v1[i]);
-        }
-        for(int i=0;i<numVet;i++){
+        for(i=0;i<3;i++){
             scanf("%lf",&v2[i]);
         }
-        for(int i=0;i<numVet;i++){
-            moduloBA+=pow(v1[i]-v2[i],2);
+        for(j=0;j<3;j++){
+            moduloBA+=pow(v1[j]-v2[j],2);
         }
-        printf("%.2lf\n",sqrt(moduloBA));
+        v1[0]=v2[0],v1[1]=v2[1],v1[2]=v2[2];
+        if(cont!=0){
+            printf("%.2lf\n",sqrt(moduloBA));
+        }
+        moduloBA=0;
+        numVet--;
+        i=0,j=0,cont++;
     }
-
+    }
 }
