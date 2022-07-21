@@ -22,7 +22,7 @@ int main(){
                     printf("0");
                     cont++;
                 }
-            }
+            } 
         }
         printf("\n"),cont=0;
         }
