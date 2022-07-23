@@ -1,6 +1,8 @@
 #include<stdio.h>
+#include<math.h>
 int main(){
-    int vet[1000]={0},n,aux,i=0,j=0;
+    int i,n=0,aux,j,vet[100000]={0};
+    double mediana=0;
     scanf("%d",&n);
     for(i=0;i<n;i++){
         scanf("%d",&vet[i]);
@@ -13,9 +15,12 @@ int main(){
         }
         j=0;
     }
-    i=0;
-    for(i=0;i<n;i++){
-        printf("%d\n",vet[i]);
-        
+    if(n%2==0){
+        mediana = (vet[(n/2)-1]+vet[(n/2)]);
+        printf("%.2lf\n",mediana/2);
+    }else if(n%2!=0){
+        aux = floor(n/2);
+        mediana = vet[aux];
+        printf("%.2lf\n",mediana);
     }
 }

@@ -1,7 +1,4 @@
 #include<stdio.h>
-//o valor total das vendas realizadas por seus funcionarios por dia da semana
-//o total em reais vendido na semana
-//o valor de vendas semanal de cada funcionario
 int main(){
     int dia=0,codigo=0,vendas=0,cont=1;
     double valor=0,seg=0,ter=0,qua=0,qui=0,sex=0,f1=0,f2=0,f3=0,s1=0,s2=0,s3=0,vt=0;
@@ -10,63 +7,33 @@ int main(){
         while(vendas!=0){
             scanf("%lf %d",&valor,&codigo);
             if(dia==1){
-                if(codigo==1){
-                    f1+=valor;
-                }
-                if(codigo==2){
-                    f2+=valor;
-                }
-                if(codigo==3){
-                    f3+=valor;
-                }
+                if(codigo==1){f1+=valor;}
+                if(codigo==2){f2+=valor;}
+                if(codigo==3){f3+=valor;}
                 seg+=valor;
             }
             if(dia==2){
-                if(codigo==1){
-                    f1+=valor;
-                }
-                if(codigo==2){
-                    f2+=valor;
-                }
-                if(codigo==3){
-                    f3+=valor;
-                }
+                if(codigo==1){f1+=valor;}
+                if(codigo==2){f2+=valor;}
+                if(codigo==3){f3+=valor;}
                 ter+=valor;
             }
             if(dia==3){
-                if(codigo==1){
-                    f1+=valor;
-                }
-                if(codigo==2){
-                    f2+=valor;
-                }
-                if(codigo==3){
-                    f3+=valor;
-                }
+                if(codigo==1){f1+=valor;}
+                if(codigo==2){f2+=valor;}
+                if(codigo==3){f3+=valor;}
                 qua+=valor;
             }
             if(dia==4){
-                if(codigo==1){
-                    f1+=valor;
-                }
-                if(codigo==2){
-                    f2+=valor;
-                }
-                if(codigo==3){
-                    f3+=valor;
-                }
+                if(codigo==1){f1+=valor;}
+                if(codigo==2){f2+=valor;}
+                if(codigo==3){f3+=valor;}
                 qui+=valor;
             }
             if(dia==5){
-                if(codigo==1){
-                    f1+=valor;
-                }
-                if(codigo==2){
-                    f2+=valor;
-                }
-                if(codigo==3){
-                    f3+=valor;
-                }
+                if(codigo==1){f1+=valor;}
+                if(codigo==2){f2+=valor;}
+                if(codigo==3){f3+=valor;}
                 sex+=valor;
             }
             vt+=valor;
