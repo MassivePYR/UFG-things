@@ -9,7 +9,6 @@ int main(){
     int v1[q1];
     int v2[q2];
     int v3[q3];
-
     for (i = 0; i < q1; i++){
         scanf("%d", &v1[i]);
     }
@@ -27,10 +26,8 @@ int main(){
     }
 
     for (i = 0; i < q3; i++){
-        for (k = i + 1; k < q3; k++)
-        {
-        if (v3[i] > v3[k])
-        {
+        for (k = i + 1; k < q3; k++){
+        if (v3[i] > v3[k]){
             aux = v3[i];
             v3[i] = v3[k];
             v3[k] = aux;
