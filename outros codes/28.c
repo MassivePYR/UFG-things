@@ -1,51 +1,107 @@
-#include<stdio.h>
-int main(){
-    int a=0, b=0, i=0, j=0, u=0, v=0, con = 0;
-    scanf("%d", &a);
-    scanf("%d", &b);
-    int A[a], B[b],soma;
-    for(i=0; i<a; i++){
-        scanf("%d", A+i);
-    }
-    for(i=0; i<b; i++) {
-        scanf("%d", B + i);
-    }
-    int U[a+b], I[a+b];
-    for(i=0; i<a; i++){
-        for(j=0; j<b; j++){
-            if(A[i] == B[j]){
-                U[con] = A[i];
-                con++;
-                break;
-            }
+#include <stdio.h>
+#include <stdlib.h>
+
+int i, j;
+void Scn (int *, int);
+void uniao (int *, int, int*, int);
+void intersecao (int *, int, int *, int, int *, int *);
+
+int main (){
+    int con = 0;
+    int tA, tB, tI;
+
+    while(1){
+        scanf("%d", &tA);
+        if(tA>=1 && tA<=100){
+            break;
         }
     }
-    con=0;
-    for(i=0; i<a; i++){
-        for(j=0; j<b; j++){
-            if(A[i] == B[j]){
-                I[con] = A[i];
-                con++;
-                break;
-            }
+    while(1){
+        scanf("%d", &tB);
+        if(tB>=1 && tB<=100){
+            break;
         }
     }
+    tI = tA + tB;
+    int A[tA], B[tB], I[tI];
+    Scn(A, tA);
+    Scn(B, tB);
+    intersecao (A, tA, B, tB, I, &con);
+    uniao(A, tA, B, tB);
     printf("(");
-    for(i=0; i<a; i++){
-        if(i!=0 && i+1<=a){
-            printf(",");
-        }
-        printf("%d", U[i]);
-    }
-    printf(")\n");
-    printf("(");
-    i=0;
-    for(i=0; i<b; i++){
-        if(i!=0 && i+1<=b){
+    for(i=0; i<con; i++){
+        if(i!=0 && i+1<=con){
             printf(",");
         }
         printf("%d", I[i]);
     }
+    printf(")");
+}
+
+void Scn (int *V, int n){
+
+    for(i=0; i<n; i++){
+        scanf("%d", V+i);
+        for(j=0; j<i; j++){
+            if(V[j] == V[i]){
+                i--;
+                break;
+            }
+        }
+    }
+}
+
+void uniao (int *A, int a, int *B, int b){
+
+    int u, j;
+    u = a + b;
+    int U[u];
+    for(i=0; i<a; i++){
+        for(j=0; j<b; j++){
+            if(A[i] == B[j]){
+                B[j] = -1;
+            }
+        }
+    }
+    for(i=0; i<a; i++){
+        U[i] = A[i];
+    }
+    for(i=0; i<b; i++){
+        U[i+a] = B[i];
+    }
+    printf("(");
+    for(i=0; i<u; i++){
+        if(U[i] != -1){
+            if(i>0 && i+1!=-1){
+                printf(",");
+            }
+            printf("%d", U[i]);
+        }
+    }
     printf(")\n");
-    return 0;
+}
+
+void intersecao (int *A, int a, int *B, int b, int *I, int *con){
+    
+    int x = 0;
+    if(a>b){
+        for(i=0; i<a; i++){
+            for(j=0; j<b; j++){
+                if(A[i] == B[j]){
+                    I[x++] = A[i];
+                }
+            }
+        }
+        *con = x;
+    }
+    if(a<b){
+        for(i=0; i<b; i++){
+            for(j=0; j<a; j++){
+                if(A[j] == B[i]){
+                    I[x++] = B[i];
+                }
+            }
+        }
+        *con = x;
+    }
 }

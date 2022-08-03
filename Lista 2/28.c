@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int i, j;
-void leitura (int *, int);
+void Scn (int *, int);
 void uniao (int *, int, int*, int);
 void intersecao (int *, int, int *, int, int *, int *);
 
@@ -23,8 +23,8 @@ int main (){
     }
     tI = tA + tB;
     int A[tA], B[tB], I[tI];
-    leitura(A, tA);
-    leitura(B, tB);
+    Scn(A, tA);
+    Scn(B, tB);
     //calcula a intersecao
     intersecao (A, tA, B, tB, I, &con);
     //calcula e imprime a uniao
@@ -40,7 +40,7 @@ int main (){
     }
     printf(")");
 }
-void leitura (int *V, int n){
+void Scn (int *V, int n){
     for(i=0; i<n; i++){
         scanf("%d", V+i);
         for(j=0; j<i; j++){
