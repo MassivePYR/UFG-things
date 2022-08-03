@@ -1,114 +1,105 @@
 #include <stdio.h>
-#include <math.h>
+#include <stdlib.h>
 
-int Entrada(void)
-{
-    int N, valido=0;
-    scanf("%d", &N);
-    while(valido!=1){
-        if(1<=N && N<101){
-            valido = 1;
-            return N;
-        }else{
-            scanf("%d", &N);
-        }
-    }
-}
-int Capcha(int n, int N, int arr[N]){
-    int i, cont = 0;
-    for(i = 0; i < N; i++){
-        if (arr[i] == n){
-            cont++;
-        }
-    }
-    if(cont == 0){
-        return 1;
-    }else{
-        return 0;
-    }
-}
+int i, j;
+void leitura (int *, int);
+void uniao (int *, int, int*, int);
+void intersecao (int *, int, int *, int, int *, int *);
 
-int Print(int n, int arr[n])
-{
-    int i;
-    for(i = 0; i < n; i++){
-        if(i == 0){
-            printf("(");
+int main (){
+    int con = 0;
+    int tA, tB, tI;
+    while(1){
+        scanf("%d", &tA);
+        if(tA>=1 && tA<=100){
+            break;
         }
-        printf("%d", arr[i]);
-        if(i == n - 1){
-            printf(")\n");
-        }else{
+    }
+    while(1){
+        scanf("%d", &tB);
+        if(tB>=1 && tB<=100){
+            break;
+        }
+    }
+    tI = tA + tB;
+    int A[tA], B[tB], I[tI];
+    leitura(A, tA);
+    leitura(B, tB);
+    //calcula a intersecao
+    intersecao (A, tA, B, tB, I, &con);
+    //calcula e imprime a uniao
+    uniao(A, tA, B, tB);
+    //imprime a intersecao
+    printf("(");
+        
+    for(i=0; i<con; i++){   
+        if(i!=0 && i+1<=con){
             printf(",");
         }
+        printf("%d", I[i]);
     }
+    printf(")");
 }
-
-int Uniaof(int n1, int n2, int a[n1], int b[n2])
-{
-    int i, n, j=n1;
-    n = n1+n2;
-    int uniao[n];
-    int igual[100];
-    for(i = 0; i<n1; i++){
-        uniao[i] = a[i];
-    }
-    for(i = 0; i < n2; i++){
-        if(Capcha(b[i], n1, uniao)){
-            uniao[j] = b[i];
-            j++;
-        }else{
-            n--;
-        }
-    }
-    Print(n, uniao);
-}
-
-int Intercecaof(int n1, int n2, int v1[n1], int v2[n2]){
-    int i, n, j, h = 0;
-    int intercecao[n1];
-    for(i=0; i<n2; i++){
-        for(j=0; j<n1; j++){
-            if(v1[j] == v2[i]){
-                intercecao[h] = v1[j];
-                h++;
+void leitura (int *V, int n){
+    for(i=0; i<n; i++){
+        scanf("%d", V+i);
+        for(j=0; j<i; j++){
+            if(V[j] == V[i]){
+                i--;
+                break;
             }
         }
     }
-    n = h;
-    if(h == 0){
-        printf("()\n");
-    }
-    Print(n, intercecao);
 }
-
-int main(){
-    int n1, n2, i, k;
-    n1 = Entrada();
-    n2 = Entrada();
-    int v1[n1];
-    int v2[n2];
-
-    for (i = 0; i < n1; i++){
-        scanf("%d", &v1[i]),k=0;
-        for (k=0; k<i; k++){
-            if (v1[i] == v1[k]){
-                scanf("%d", &v1[i]);
-                k = 0;
+ 
+void uniao (int *A, int a, int *B, int b){
+    int u, j;
+    u = a + b;
+    int U[u];
+    for(i=0; i<a; i++){
+        for(j=0; j<b; j++){
+            if(A[i] == B[j]){
+                B[j] = -1;
             }
         }
     }
-
-    for (i = 0; i < n2; i++){
-        scanf("%d", &v2[i]);
-        k = 0;
-        for (k = 0; k < i; k++){
-            if (v2[i] == v2[k]){
-                scanf("%d", &v2[i]);
-                k = 0;
+    for(i=0; i<a; i++){
+        U[i] = A[i];
+    }
+    for(i=0; i<b; i++){
+        U[i+a] = B[i];
+    }
+    printf("(");
+    for(i=0; i<u; i++){
+        if(U[i] != -1){
+            if(i>0 && i+1!=-1){
+                printf(",");
             }
+            printf("%d", U[i]);
         }
     }
-    Uniaof(n1, n2, v1, v2);
-    Intercecaof(n1, n2, v1, v2);
+    printf(")\n");
+}
+void intersecao (int *A, int a, int *B, int b, int *I, int *con){
+    int x = 0;
+    if(a>b){
+        for(i=0; i<a; i++){
+            for(j=0; j<b; j++){
+                if(A[i] == B[j]){
+                    I[x++] = A[i];
+                }
+            }
+        }
+        *con = x;
+    }
+    if(a<b){
+        for(i=0; i<b; i++){
+            for(j=0; j<a; j++){
+                if(A[j] == B[i]){
+                    I[x++] = B[i];
+                }
+            }
+        }
+        *con = x;
+    }
 }

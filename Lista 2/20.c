@@ -1,24 +1,38 @@
 #include <stdio.h> 
 
 int main(){
-    int n,diff,diffmax,i;
+    int n,i=0;
+    double diff, diffmax, adiff, cont=0, a[3]={0}, b[3]={0};
     scanf("%d", &n);
     while(n--){
-        int a[3] = {0}, cont = 0;
-        int d[3] = {0};
-        scanf("%d %d %d", &a[0], &a[1], &a[2]);
-        if(cont%2==0){
-            d[0] = a[0];
-            d[1] = a[1];
-            d[2] = a[2];
-        }else if(cont%2!=0){
-           for(i=0; i<3; i++){
-               d[i] = a[i];
-            diff= d[0]-a[0];
-            if(diffmax<diff){
-                diffmax=diff;
-            }
+        if(cont>0){
+            a[0] = b[0];
+            a[1] = b[1];
+            a[2] = b[2];
+            scanf("%lf %lf %lf", &b[0], &b[1], &b[2]);
+            for(i=0;i<3;i++){
+                adiff=(b[i]-a[i]);
+                diff=fabs(adiff);
+                if(diff>diffmax){
+                    diffmax=diff;
+                }
+            }i=0;
         }
-    }   
-}
+        if(cont==0){
+        scanf("%lf %lf %lf", &a[0], &a[1], &a[2]);
+        scanf("%lf %lf %lf", &b[0], &b[1], &b[2]);
+        for(i=0;i<3;i++){
+                adiff=(a[i]-b[i]);
+                diff=fabs(adiff);
+                if(diff>diffmax){
+                    diffmax=diff;
+                }
+            }
+            cont++;
+            i=0;
+            n--;
+        }
+        printf("%.2lf\n", diffmax);
+        diffmax=0;
+    }
 }
