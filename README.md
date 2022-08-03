@@ -1,4 +1,4 @@
-![repository-template](https://user-images.githubusercontent.com/25217431/182681722-7a60e19b-51e4-44a9-8d27-62dc99bd0c9f.png)
+![repository-template](https://user-images.githubusercontent.com/25217431/182683086-ed5dbbca-409f-4ddd-9894-8993a5cf881b.png)
 # UFG-things
 testes e mais testes
 nada mais do que testes de uma lista de programação em C...
