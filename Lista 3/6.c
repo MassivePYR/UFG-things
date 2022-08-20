@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<string.h>
 int i=0, j=0;
-//palindromo
 int main(){
     int crit=0;
     char str[201];
