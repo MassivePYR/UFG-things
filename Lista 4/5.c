@@ -3,27 +3,21 @@ int i,j;
 
 int main(){
     int m, n;
-    do{scanf("%d", &m);
-    }while(m<1 || m>10);
-
-    do{scanf("%d", &n);
-    }while(n<1 || n>10);
+    scanf("%d", &m);
+    scanf("%d", &n);
     
     int matriz [m][n];
     for(i=0; i<m; i++){
         for(j=0; j<n; j++){
-            scanf("%d", &matriz[i][j]);
+            if(j%2==0&&i%2==0){matriz[i][j] = 1;}
+            if(j%2==0&&i%2!=0){matriz[i][j] = 0;}
+            if(j%2!=0&&i%2==0){matriz[i][j] = 0;}
+            if(j%2!=0&&i%2!=0){matriz[i][j] = 1;}
         }
     }
     for(i=0; i<m; i++){
         for(j=0; j<n; j++){
-            if(j==0){
-            printf("linha %d: ", i+1);
-            }
             printf("%d", matriz[i][j]);
-            if(j<n-1){
-                printf(",");
-            }
         }
         printf("\n");
     }

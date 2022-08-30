@@ -1,23 +1,51 @@
 #include<stdio.h>
 #include<string.h>
-int i,j;
-
+ 
 int main(){
-    char str[5001];
-    int entradas,cont=0;
-    scanf("%d",&entradas);
-    while(entradas--){
-        getchar();
-        scanf("%[^\n]",str);
-        if(strlen(str)==5){
-            printf("3\n");
-        }
-        if(strlen(str)==3){
-            if(str[0]=='o'&&str[1]=='n'||str[0]=='o'&&str[2]=='e'||str[1]=='n'&&str[2]=='e'){
-                printf("1\n");
-            }else if(str[0]=='t'&&str[1]=='w'||str[0]=='t'&&str[2]=='o'||str[1]=='w'&&str[2]=='o'){
-                printf("2\n");
+    int n,leds=0,i=0;
+    scanf("%d", &n);
+        char s1[1000000];
+        while(n--){
+        scanf("%s", s1);
+        i=strlen(s1);
+        for(i=0;i<strlen(s1);i++){
+        switch (s1[i]){
+            case '0':
+                leds+=6;
+                break;
+            case '1':
+                leds+=2;
+                break;
+            case '2':
+                leds+=5;
+                break;
+            case '3':
+                leds+=5;
+                break;
+            case '4':
+                leds+=4;
+                break;
+            case '5':
+                leds+=5;
+                break;
+            case '6':
+                leds+=6;
+                break;
+            case '7':
+                leds+=3;
+                break;
+            case '8':
+                leds+=7;
+                break;
+            case '9':
+                leds+=6;
+                break;
+            default:
+                leds+=0;
+                break;
             }
-        } 
+        }
+        printf("%d leds\n", leds);
+        leds=0;
     }
 }

@@ -1,26 +1,35 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-//A entrada contém diversos casos de testes. Cada caso é expresso como um texto em uma única linha,
-//contendo de 1 a 100 palavras separadas por um único espaço, cada palavra tendo de 1 a 50 letras minúsculas
-//ou maiúsculas (’A’-’Z’,’a’-’z’). A entrada termina em EOF
-//Para cada caso de teste imprima o número de aliterações existentes no texto informado, conforme exemplos abaixo
-int main(){
-    char str[51];
-    int i, j, qnts, qnts2;
-    scanf("%d", &qnts);
-    getchar();
-    while(qnts--){
-        scanf("%s", str);
-        qnts2=0;
-        for(i=0; i<strlen(str); i++){
-            if(isalpha(str[i])){
-                qnts2++;
+
+int main()
+{
+    char str[6001];
+    char *att,*ant,l;
+    int size,reps;
+
+    while (fgets(str, 6001, stdin)) {
+        reps=0,size=0;
+        l='\0';
+        att=str;
+        ant=NULL;
+        while(*att!='\n') {
+            if(!ant||*ant==' '&&*att!=' '){
+                if (l==tolower(*att))
+                    ++size;
+                else{
+                    if(size>1)
+                    ++reps;
+                    size=1;
+                    l=tolower(*att);
+                }
             }
+            ant=att;
+            ++att;
         }
-        printf("%d\n", qnts2);
+        if (size>1)
+        ++reps;
+        printf("%d\n", reps);
     }
     return 0;
-
-
 }

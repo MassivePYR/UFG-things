@@ -1,20 +1,25 @@
-#include<stdio.h>
-#include<string.h>
-int i,j;
+#include <stdio.h>
+#include <string.h>
 
 int main(){
-    int cases, start, finish;
-    char str[500];
-    scanf("%d", &cases);
-    while(cases--){
-        scanf("%d %d", &start, &finish);
-        for(i=start;i<finish;i++){
-            strcat(i, str);
-            }
-            printf("%s", str);
-            for(j=finish;j<start;j--){
-                printf("%c", str[j]);
-            }
-            printf("\n");
+    int n,n1,n2,i,k,j=1,x;
+    scanf("%d",&n);
+    char string[12221];
+
+    while (j <= n){
+        scanf("%d %d",&n1,&n2);
+        x=n1;
+        while (x<=n2){
+            printf("%d",x);
+            x++;
         }
+        for (k=n2;k>=n1;k--){
+            sprintf(string, "%d",k);
+            for (i=strlen(string)-1;i>=0;i--){
+            printf("%c", string[i]);
+            }
+        }
+        printf("\n");
+        j++;
     }
+}
