@@ -8,13 +8,14 @@ int main(){
     }while(m<1 || m>100);
     do{scanf("%d", &n);//largura
     }while(n<1 || n>100);
-    scanf("%d", &o);//Borda
+    scanf("%d", &o);//Grossura da Borda
     scanf("%d", &p);//o quê da borda
     
     int matriz [m][n];
     for(i=0; i<m; i++){
         for(j=0; j<n; j++){
-            if(j%2==0&&i%2==0){matriz[i][j] = 1;}
+            matriz[i][j] = 0;
+            if(j==1&&j<=o || j>=m-o){matriz[i][j] = &p;}
             if(j%2==0&&i%2!=0){matriz[i][j] = 0;}
             if(j%2!=0&&i%2==0){matriz[i][j] = 0;}
             if(j%2!=0&&i%2!=0){matriz[i][j] = 1;}
