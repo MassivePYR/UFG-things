@@ -1,36 +1,28 @@
 #include<stdio.h>
 #include<string.h>
-int i=0,j=0,k=0;
+int i;
 
 int main(){
-    int n1,n2;
-    scanf("%d",&n1);
-    struct creditos{
-        int codigoDoCurso;
-        double valorPorCredito;
-        char nCurso[100];
-    };
-    struct creditos tabela[n1];
-    for(i=0;i<n1;i++){
-        scanf("%d %lf %[^\n]s",&tabela[i].codigoDoCurso,&tabela[i].valorPorCredito, tabela[i].nCurso);
-    }
-    scanf("%d",&n2);
-    struct alunos{
-        int codigoDoCurso;
-        int quantidadeDeCreditos;
-        char nomeDoAluno[500];
-    };
-    struct alunos alunos[n2];
-    for(i=0;i<n2;i++){
+    int qntsCursos;
+    scanf("%d", &qntsCursos);
+    struct {int cursoCodigo; double valorpCredito; char nomeDCurso[100];}curso[qntsCursos];
+    for(i=0;i<qntsCursos;i++){
+        scanf("%d",&curso[i].cursoCodigo);
         getchar();
-        scanf("%[^\n]s",alunos[i].nomeDoAluno);
-        scanf("%d %d",&alunos[i].codigoDoCurso,&alunos[i].quantidadeDeCreditos);
+        scanf("%lf",&curso[i].valorpCredito);
+        getchar();
+        scanf("%s",&curso[i].nomeDCurso);
+        getchar();
     }
-    for(i=0;i<n2;i++){
-        for(k=0;k<n1;k++){
-            if(alunos[i].codigoDoCurso==tabela[k].codigoDoCurso){
-                printf("Aluno(a): %s Curso: %s Num. Creditos: %d Valor Credito: %.2lf Mensalidade: %.2lf\n",alunos[i].nomeDoAluno,tabela[k].nCurso,alunos[i].quantidadeDeCreditos,tabela[k].valorPorCredito,alunos[i].quantidadeDeCreditos*tabela[k].valorPorCredito);
-            }
-        }
+    int qntsAlunos;
+    scanf("%d", &qntsAlunos);
+    double mensalidade;
+    struct {char nomeDAluno[500]; int cursoCodigo; int qntCredito;}aluno[qntsAlunos];
+    for(i=0;i<qntsAlunos;i++){
+        scanf("%[^\n]s", aluno[i].nomeDAluno );
+        scanf("%d",&aluno[i].cursoCodigo);
+        scanf("%d",&aluno[i].qntCredito);
+        mensalidade = aluno[i].qntCredito * curso[i].valorpCredito;
+        printf("Aluno(a): %s Curso: %s Num. Creditos: %d Valor Credito: %.2lf Mensalidade: %.2lf\n", aluno[i].nomeDAluno, curso[i].nomeDCurso, aluno[i].qntCredito, curso[i].valorpCredito, mensalidade);
     }
 }
