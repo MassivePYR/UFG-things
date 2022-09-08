@@ -19,7 +19,7 @@ int main(){
     double mensalidade;
     struct {char nomeDAluno[500]; int cursoCodigo; int qntCredito;}aluno[qntsAlunos];
     for(i=0;i<qntsAlunos;i++){
-        scanf("%[^\n]s", aluno[i].nomeDAluno );
+        scanf("%[^\n]s", aluno[i].nomeDAluno);
         scanf("%d",&aluno[i].cursoCodigo);
         scanf("%d",&aluno[i].qntCredito);
         mensalidade = aluno[i].qntCredito * curso[i].valorpCredito;

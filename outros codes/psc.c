@@ -12,7 +12,7 @@ int main()
   while (n--)
   {
     getchar();
-    scanf("%[^\n]s", frase);
+    scanf("%[^\n]", frase);
 
     for (i = 2; i < strlen(frase); i++)
     {
