@@ -10,25 +10,16 @@ int main(){
     }while(n<1 || n>100);
     scanf("%d", &o);//Grossura da Borda
     scanf("%d", &p);//o quê da borda
-    
-    int matriz [m][n];
-    for(i=0; i<m; i++){
-        for(j=0; j<n; j++){
-            matriz[i][j] = 0;
-            if(j==1&&j<=o || j>=m-o){matriz[i][j] = &p;}
-            if(j%2==0&&i%2!=0){matriz[i][j] = 0;}
-            if(j%2!=0&&i%2==0){matriz[i][j] = 0;}
-            if(j%2!=0&&i%2!=0){matriz[i][j] = 1;}
-        }
-    }
-    for(i=0; i<m; i++){
-        for(j=0; j<n; j++){
-            if(j==0){
-            printf("linha %d: ", i+1);
-            }
-            printf("%d", matriz[i][j]);
-            if(j<n-1){
-                printf(",");
+    printf("P2\n");
+    printf("%d %d\n", n, m);
+    printf("255\n");
+
+    for(i=0;i<m;i++){
+        for(j=0;j<n;j++){
+            if(i<o || i>m-o || j<o || j>n-o){
+                printf("%d ", p);
+            }else{
+                printf("0 ");
             }
         }
         printf("\n");

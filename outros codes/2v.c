@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main(){
-    int i, k, j, l, n, aux, x = 1, media = 0;
+    int i, k, j, l, n, aux, cont = 1, aux2 = 0;
     char letra;
     scanf("%c", &letra);
     scanf("%d", &n);
@@ -14,30 +14,28 @@ int main(){
         }
     aux = n / 2;
     switch (letra)
-        {
-          {
-            case 'S':
-
-        for (i = n - 1; i > aux; i--){
-            for (k = x; k < n - x; k++){
-                soma += matriz[k][i];
-                }
-            x++;
-        }
+        {{
+        case 'S':
+            for (i = n - 1; i > aux; i--){
+                for (k = cont; k < n - cont; k++){
+                    soma += matriz[k][i];
+                    }
+                cont++;
+            }
         printf("%.2lf\n", soma);
         return 0;
         break;
 
         case 'M':
         for (i = n - 1; i > aux; i--){
-            for (k = x; k < n - x; k++){
+            for (k = cont; k < n - cont; k++){
                 soma += matriz[k][i];
-                media++;
+                aux2++;
             }
-            x++;
+            cont++;
         }
         if(soma > 0){
-            soma /= media;
+            soma /= aux2;
         }
         printf("%.2lf\n", soma);
         return 0;
