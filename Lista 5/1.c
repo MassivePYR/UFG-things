@@ -1,34 +1,32 @@
 #include<stdio.h>
 #include<string.h>
+int i,j;
 
 int main(){
-//
-int casos=0,n,cont=0;
-scanf("%d",&casos);
-while(casos--){
-    cont++;
-    printf("Caso de teste %d\n",cont);
-    scanf("%d",&n);
-    struct fracao{
-        double numerador;
-        double denominador;
-    };
-    struct fracao fracoes[n];
-    int i,j;
-    for(i=0;i<n;i++){
-        scanf("%lf/%lf",&fracoes[i].numerador,&fracoes[i].denominador);
+    int testes=0, qntFracoes, cont=0;
+    scanf("%d", &testes);
+    while(testes--){
+        cont++;
+        printf("Caso de teste %d\n",cont);
+        scanf("%d",&qntFracoes);
+
+        struct fracao{ int numerador; int denominador;}fracao[qntFracoes];
+        for(i=0;i<qntFracoes;i++){
+            scanf("%d/%d",&fracao[i].numerador,&fracao[i].denominador);
         }
-    int comparador=0;
-    for(i=0;i<n;i++){
-        for(j=i+1;j<n;j++){
-            if(fracoes[i].numerador/fracoes[j].denominador==fracoes[j].numerador/fracoes[i].denominador){
-                printf("%lf/%lf equivalente a %lf/%lf\n",fracoes[i].numerador,fracoes[i].denominador,fracoes[j].numerador,fracoes[j].denominador);
-                comparador++;
+        int eqTrue = 0;
+        for(i=0;i<qntFracoes;i++){
+            for(j=i+1;j<qntFracoes;j++){
+                double fra1 = (double)fracao[i].numerador/fracao[i].denominador;
+                double fra2 = (double)fracao[j].numerador/fracao[j].denominador;
+                if(fra1==fra2){
+                    printf("%d/%d equivalente a %d/%d\n",fracao[i].numerador,fracao[i].denominador,fracao[j].numerador,fracao[j].denominador);
+                    eqTrue++;
+                }
             }
         }
+        if(eqTrue==0){
+                printf("Nao ha fracoes equivalentes na sequencia\n");
+            }
     }
-        if(comparador==0){
-            printf("Nao ha fracoes equivalentes na sequencia\n");
-        }
-    }   
 }

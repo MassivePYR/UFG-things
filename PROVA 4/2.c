@@ -32,7 +32,7 @@ int main(){
     if(l=='S'){
         for(i=n-1;i>aux;i--){
             for(j=cont;j<n-cont;j++){
-                total+=mat[j][i];
+                total+=mat[j][i]; //era aqui que estava invertido, estava mat[i][j]
             }
             cont++;
         }
