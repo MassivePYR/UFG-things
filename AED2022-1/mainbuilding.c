@@ -7,12 +7,12 @@ void flush_buffer(){
 void leituraLinhaColuna(int *linhas, int *colunas)// envia o endereço das variáveis de linha e de coluna 
 { 
     FILE *fp;
-    fp = fopen("matriz34.txt", "rt");
+    fp = fopen(".\\matriz34.txt", "rt");
     fscanf(fp, "%d %d", linhas, colunas);
     fclose(fp);
 }
 
-void leituraMatriz(int linhas, int colunas, float *matriz)// necessita declarar matriz antes | envia linha, coluna e nome da matriz declarada ( somente o nome )
+/*void leituraMatriz(int linhas, int colunas, float *matriz)// necessita declarar matriz antes | envia linha, coluna e nome da matriz declarada ( somente o nome )
 {
     int i, j; // argumentos: quantidade de linha, coluna e matriz
     FILE *fp;
@@ -146,7 +146,7 @@ void repetidos(int linhas, int colunas, float matriz[linhas][colunas]){
 void sair(){
     printf("Obrigado, espero ter sido útil!\n\n");
 }
-
+*/
 int main(){
 
     int linhas=0, colunas=0;
