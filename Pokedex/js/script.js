@@ -4,8 +4,8 @@ const pokemonImage = document.querySelector(".pokemon__image");
 
 const form = document.querySelector(".form");
 const input = document.querySelector(".input__search");
-const buttonPrev = document.querySelector("btn-ptn-prev");
-const buttonNext = document.querySelector("btn-ptn-next");
+const buttonPrev = document.querySelector(".btn-prev");
+const buttonNext = document.querySelector(".btn-next");
 
 let searchPokemon = 1;
 
@@ -26,27 +26,32 @@ const renderPokemon = async (pokemon) => {
   const data = await fetchPokemon(pokemon);
 
   if (data) {
+    pokemonImage.style.display = "block";
     pokemonName.innerHTML = data.name;
     pokemonNumber.innerHTML = data.id;
-    if (input.value > 1008 || input.value <= 0) {
-      console.log("Invalid Pokemon Number");
-      pokemonName.innerHTML = "Pokemon not found";
-      pokemonNumber.innerHTML = "";
-    }
-    if (input.value >= 650 && input.value <= 1008) {
+    searchPokemon = data.id;
+    if (searchPokemon >= 650 && searchPokemon <= 1008) {
       pokemonImage.src =
         data["sprites"]["versions"]["generation-viii"]["icons"][
           "front_default"
         ];
+      pokemonImage.style.transform = "translate(-56%, 15%)";
+      pokemonImage.style.height = "32%";
     }
-    if (input.value < 650 && input.value > 0) {
+    if (searchPokemon < 650 && searchPokemon > 0) {
       pokemonImage.src =
         data["sprites"]["versions"]["generation-v"]["black-white"]["animated"][
           "front_default"
         ];
+      pokemonImage.style.transform = "translate(-63%, 18%)";
+      pokemonImage.style.height = "18%";
     }
     input.value = "";
-    searchPokemon = data.id;
+  } else {
+    console.log("Invalid Pokemon Number");
+    pokemonImage.style.display = "none";
+    pokemonName.innerHTML = "Pokemon not found";
+    pokemonNumber.innerHTML = "";
   }
 };
 
