@@ -1,45 +1,77 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-int main(){
-    int n1=0,n2=0,cast=0,aux=0;
-    printf("Calculadora de Mula\n\nSelecione uma operação:\n1 - Soma\n2 - Subtração\n3 - Multiplicação\n4 - Divisão\n5 - Sair\n");
-    scanf("%d",&cast);
-    switch (cast){
-        
-    case 1: printf("Digite o primeiro número: ");
-    scanf("%d",&n1);
-    printf("Digite o segundo número: ");
-    scanf("%d",&n2);
-    aux=n1+n2;
-    printf("O resultado é: %d",aux);
+char filterAccents(char c)
+{
+    switch (c)
+    {
+    case 'á':
+        return 'a';
         break;
-    case 2: printf("Digite o primeiro número: ");
-    scanf("%d",&n1);
-    printf("Digite o segundo número: ");
-    scanf("%d",&n2);
-    aux=n1-n2;
-    printf("O resultado é: %d",aux);
+    case 'à':
+        return 'a';
         break;
-    case 3: printf("Digite o primeiro número: ");
-    scanf("%d",&n1);
-    printf("Digite o segundo número: ");
-    scanf("%d",&n2);
-    aux=n1*n2;
-    printf("O resultado é: %d",aux);
+    case 'ã':
+        return 'a';
         break;
-    case 4: printf("Digite o primeiro número: ");
-    scanf("%d",&n1);
-    printf("Digite o segundo número: ");
-    scanf("%d",&n2);
-    aux=n1/n2;
-    printf("O resultado é: %d",aux);
+    case 'â':
+        return 'a';
         break;
-    case 5: printf("Saindo...");
+    case 'é':
+        return 'e';
         break;
-
+    case 'ê':
+        return 'e';
+        break;
+    case 'í':
+        return 'i';
+        break;
+    case 'ó':
+        return 'o';
+        break;
+    case 'ô':
+        return 'o';
+        break;
+    case 'õ':
+        return 'o';
+        break;
+    case 'ú':
+        return 'u';
+        break;
+    case 'ç':
+        return 'c';
+        break;
     default:
+        return c;
         break;
     }
-    return 0;
+}
+
+int main()
+{
+    char str[opcao], c, str2[100];
+    int cont = 0;
+    printf("Digite uma palavra opção e no final digite ctrl+d");
+    while (scanf("%s", c) != EOF)
+    {
+        for (int i = 0; i < strlen(str); i++)
+        {
+            str2[i] = filterAccents(c);
+        }
+        while (str2[i] != str[i + cont] && cont <= strlen(str))
+        {
+            cont++;
+        }
+        if (str2[i - 1] && str2[i] != str[i + cont - 1] && str[i + cont])
+        {
+            printf("Não é subseqüência");
+            return 0;
+        }
+        else
+        {
+            printf("Deu certo");
+            return 0;
+        }
+    }
 }
