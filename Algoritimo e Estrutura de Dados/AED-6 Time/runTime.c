@@ -7,7 +7,7 @@ int main(){
     start = clock();
     
     int i;
-    for (i = 0; i < 100000; i++){
+    for (i = 0; i < 10000; i++){
         printf("%d", i);
         
     }
