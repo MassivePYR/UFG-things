@@ -1,74 +1,90 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct node{
+// Estrutura para representar um nó no deque
+typedef struct node
+{
     int info;
     struct node *next;
-}node;
+} node;
 
-typedef struct deque{
+// Estrutura para representar o deque
+typedef struct deque
+{
     node *front;
     node *rear;
-}deque;
+} deque;
 
-void init(deque *d){
+// Inicializa o deque
+void init(deque *d)
+{
     d->front = NULL;
     d->rear = NULL;
 }
 
-int empty(deque *d){
+// Verifica se o deque está vazio
+int empty(deque *d)
+{
     return (d->front == NULL);
 }
 
-void addFrente(deque *d, int x){
-    node *p = (node*)malloc(sizeof(node));
+void addFrente(deque *d, int x)
+{
+    node *p = (node *)malloc(sizeof(node));
     p->info = x;
     p->next = d->front;
     d->front = p;
-    if(d->rear == NULL)
+    if (d->rear == NULL)
         d->rear = p;
 }
 
-void addFim(deque *d, int x){
-    node *p = (node*)malloc(sizeof(node));
+void addFim(deque *d, int x)
+{
+    node *p = (node *)malloc(sizeof(node));
     p->info = x;
     p->next = NULL;
-    if(d->rear == NULL)
+    if (d->rear == NULL)
         d->front = p;
     else
         d->rear->next = p;
     d->rear = p;
 }
 
-int removeFrente(deque *d){
-    if(empty(d)){
+int removeFrente(deque *d)
+{
+    if (empty(d))
+    {
         printf("Deque vazio!");
         exit(1);
     }
     node *p = d->front;
     int x = p->info;
     d->front = p->next;
-    if(d->front == NULL)
+    if (d->front == NULL)
         d->rear = NULL;
     free(p);
     return x;
 }
 
-int removeFim(deque *d){
-    if(empty(d)){
+int removeFim(deque *d)
+{
+    if (empty(d))
+    {
         printf("Deque vazio!");
         exit(1);
     }
     node *p = d->front;
     node *q = NULL;
-    while(p->next != NULL){
+    while (p->next != NULL)
+    {
         q = p;
         p = p->next;
     }
     int x = p->info;
-    if(q == NULL)
+    if (q == NULL)
         d->front = d->rear = NULL;
-    else{
+    else
+    {
         q->next = NULL;
         d->rear = q;
     }
@@ -76,7 +92,8 @@ int removeFim(deque *d){
     return x;
 }
 
-int main(){
+int main()
+{
     deque d;
     init(&d);
     addFrente(&d, 1);
@@ -89,13 +106,13 @@ int main(){
     addFim(&d, 8);
     addFim(&d, 9);
     addFim(&d, 10);
-    while(!empty(&d))
+    while (!empty(&d))
         printf("%d ", removeFrente(&d));
     printf(" ");
-    while(!empty(&d))
+    while (!empty(&d))
         printf("%d ", removeFim(&d));
     return 0;
 }
 
-//Output:
-//5 4 3 2 1 6 7 8 9 10
+// Output:
+// 5 4 3 2 1 6 7 8 9 10
