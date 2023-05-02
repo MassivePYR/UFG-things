@@ -8,8 +8,8 @@ public class Main {
 
         Produto perfil = new Produto(004);
         Produto xadrez = new Produto(005, "Jogo Xadrez");
-        Produto damas = new Produto(005, "Jogo Damas", 10);
-        Produto baralho = new Produto(006, "Jogo Baralho", 12, "jogo", 20.00);
+        Produto damas = new Produto(006, "Jogo Damas", 10);
+        Produto baralho = new Produto(007, "Jogo Baralho", 12, "jogo", 20.00);
 
         batalhaNaval.vender(3);
         master.vender(21);
@@ -24,6 +24,6 @@ public class Main {
         xadrez.consultar();
         damas.consultar();
         baralho.consultar();
-        new Produto(007, "Jogo Banco Imobiliario", 10, "jogo", 100.00).consultar();
+        new Produto(8, "Jogo Banco Imobiliario", 10, "jogo", 100.00).consultar();
     }
 }
