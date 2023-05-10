@@ -1,33 +1,38 @@
 import java.text.NumberFormat;
 
 public class Produto {
-    int codigo;
-    String nome;
-    int estoque;
-    String tipo;
-    double valor;
+    public static int cont = 1;
+    private int codigo;
+    private String nome;
+    private int estoque;
+    private String tipo;
+    private double valor;
 
-    public Produto(int codigo) {
-        this.codigo = codigo;
+    public Produto() {
+        this.codigo = cont;
+        cont++;
     }
 
-    public Produto(int codigo, String nome) {
-        this.codigo = codigo;
+    public Produto(String nome) {
+        this.codigo = cont;
         this.nome = nome;
+        cont++;
     }
 
-    public Produto(int codigo, String nome, int estoque) {
-        this.codigo = codigo;
+    public Produto(String nome, int estoque) {
+        this.codigo = cont;
         this.nome = nome;
         this.estoque = estoque;
+        cont++;
     }
 
-    public Produto(int codigo, String nome, int estoque, String tipo, double valor) {
-        this.codigo = codigo;
+    public Produto(String nome, int estoque, String tipo, double valor) {
+        this.codigo = cont;
         this.nome = nome;
         this.estoque = estoque;
         this.tipo = tipo;
         this.valor = valor;
+        cont++;
     }
 
     private static String formatarBrasil(double valor) {
@@ -76,5 +81,4 @@ public class Produto {
     public boolean igual(Produto produto) {
         return nome == produto.nome && tipo == produto.tipo;
     }
-
 }

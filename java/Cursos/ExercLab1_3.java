@@ -1,3 +1,5 @@
+package Cursos;
+
 import java.util.Scanner;
 
 public class ExercLab1_3 {
@@ -7,21 +9,28 @@ public class ExercLab1_3 {
         System.out.println("Digite a quantidade de cursos: ");
         int qtdCursos = sc.nextInt();
         sc.nextLine();
-        cursos[] curso = new cursos[qtdCursos];
+        Cursos[] curso = new Cursos[qtdCursos];
         for (int i = 0; i < qtdCursos; i++) {
-            curso[i] = new cursos();
+            String a, b, c;
+            int d;
             System.out.println("Digite o nome do curso " + (i + 1) + ": ");
-            curso[i].nome = sc.nextLine();
+            a = sc.nextLine();
+
             System.out.println("Digite a carga horária do curso " + (i + 1) + ": ");
-            curso[i].cargaHoraria = sc.nextInt();
+            d = sc.nextInt();
             sc.nextLine();
+
             System.out.println("Digite o nome do professor do curso " + (i + 1) + ": ");
-            curso[i].professor = sc.nextLine();
+            b = sc.nextLine();
+
             System.out.println("Digite o turno do curso " + (i + 1) + ": ");
-            curso[i].turno = sc.nextLine();
+            c = sc.nextLine();
+            curso[i] = new Cursos(a, d, b, c);
         }
         for (int i = 0; i < qtdCursos; i++) {
-            System.out.println("Curso " + (i + 1) + ": " + curso[i].nome + ", " + curso[i].cargaHoraria + ", " + curso[i].professor + ", " + curso[i].turno);
+            System.out.println("Curso " + (i + 1) + ": " + curso[i].getNome() + ", " + curso[i].getCargaHoraria() + ", "
+                    + curso[i].getProfessor() + ", " + curso[i].getTurno());
         }
+        sc.close();
     }
 }
