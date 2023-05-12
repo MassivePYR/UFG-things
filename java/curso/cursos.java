@@ -1,3 +1,5 @@
+package curso;
+
 public class cursos {
     String nome;
     int cargaHoraria;

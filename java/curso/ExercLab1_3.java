@@ -1,3 +1,5 @@
+package curso;
+
 import java.util.Scanner;
 
 public class ExercLab1_3 {
@@ -21,7 +23,8 @@ public class ExercLab1_3 {
             curso[i].turno = sc.nextLine();
         }
         for (int i = 0; i < qtdCursos; i++) {
-            System.out.println("Curso " + (i + 1) + ": " + curso[i].nome + ", " + curso[i].cargaHoraria + ", " + curso[i].professor + ", " + curso[i].turno);
+            System.out.println("Curso " + (i + 1) + ": " + curso[i].nome + ", " + curso[i].cargaHoraria + ", "
+                    + curso[i].professor + ", " + curso[i].turno);
         }
     }
 }
