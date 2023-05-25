@@ -1,11 +1,11 @@
 package Alunos;
 
 public class Alunos {
-    String nome;
-    int idade;
-    String curso;
-    int matricula;
-    Curso Curso;
+    private String nome;
+    private int idade;
+    private String curso;
+    private int matricula;
+    private Curso Curso;
 
     public Alunos(String nome, int idade, String curso, int matricula, Curso Curso) {
         this.nome = nome;

@@ -5,7 +5,7 @@ public class Musica {
     private String nome;
     private int ano;
     private String tipo;
-    Compositor Compositor;
+    private Compositor Compositor;
 
     public String getNome() {
         return nome;

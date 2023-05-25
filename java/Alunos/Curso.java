@@ -3,7 +3,7 @@ package Alunos;
 public class Curso {
     private String nome;
     private String sigla;
-    Departamento Departamento;
+    private Departamento Departamento;
 
     public Curso(String nome, String sigla, Departamento Departamento) {
         this.nome = nome;
