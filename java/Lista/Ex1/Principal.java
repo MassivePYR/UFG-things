@@ -1,13 +1,13 @@
 package Lista.Ex1;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class Principal {
     public static void main(String[] args) {
-        ArrayList<Aluno> alunos = new ArrayList<Aluno>();
-        ArrayList<Curso> cursos = new ArrayList<Curso>();
+        // ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+        // ArrayList<Curso> cursos = new ArrayList<Curso>();
 
-        Curso cursos = new Curso("CC", "Ciência da Computação");
+        // Curso curso = new Curso("CC", "Ciência da Computação");
 
         Aluno aluno = new Aluno("João");
         aluno.matricular(12345, "Engenharia de Software", 2021);
