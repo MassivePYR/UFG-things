@@ -4,25 +4,26 @@ public class Aluno {
 	private String nome;
 	private int matricula;
 	private int ano;
-	Curso curso;
+	private String curso;
 
-	public Aluno(String nome) {
+	Aluno(String nome) {
 		this.nome = nome;
 	}
 
-	public void matricular(int matricula, String nomeCurso, int ano) {
+	public void matricular(int matricula, String curso, int ano) {
 		this.matricula = matricula;
 		this.ano = ano;
-		this.curso = curso.setNome(nomeCurso);
-
+		this.curso = curso;
+		System.out.println("\nAluno matriculado com sucesso!");
 	}
 
 	public String toString() {
-		return "Aluno: " + nome + " - Matrícula: " + matricula + " - Curso: " + curso.getSigla() + " - " + ano;
+		return "Aluno : " + nome + " - matricula : " + matricula + " - Curso : " + curso + " - " + ano + "\n";
 	}
 
-	public void setCurso(String sigla, String nomeCurso) {
-		this.curso = new Curso(sigla, nomeCurso);
+	public void setCurso(String curso) {
+		this.curso = curso;
+		System.out.println("\nCurso alterado com sucesso!");
 	}
 
 	public void setAno(int ano) {
