@@ -12,7 +12,6 @@
             box-sizing: border-box;
         }
         header {
-            height: 100vh;
             width: 100%;
             background-color: #333;
             padding: 20px;
@@ -32,16 +31,45 @@
         }
         /* ------------------------------------------------------------------- */
         main {
-            height: 100vh;
+            background: linear-gradient( #bcc1fa,#e0faf9);
+            height: 300vh;
             padding: 20px;
+        }
+        .Home {
+            width: 100%;
+            height: 30vh;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .Sobre {
+            width: 100%;
+            height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .Contato {
+            width: 100%;
+            height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         /* ------------------------------------------------------------------- */
         footer {
             height: 20vh;
+            position: fit-content;
+            bottom: 0;
+            width: 100%;
             background-color: #333;
             padding: 20px;
             text-align: center;
-            color: #fff;
+            color: #ffffff;
         }
     </style>
 </head>
@@ -59,16 +87,19 @@
         <div id="app" class="Home">
             <h1>Home</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+            <p>Ganhadores da mega-sena tendem a nunca mais ganhar nenhum sorteio</p>
         </div>
 
         <div id="app" class="Sobre">
             <h1>Sobre</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+        
         </div>
 
         <div id="app"class="Contato">
             <h1>Contato</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+        
         </div>
 
     </main>
