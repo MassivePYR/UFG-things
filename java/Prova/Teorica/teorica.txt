@@ -1,0 +1,71 @@
+import java.util.ArrayList;
+
+public class Concessionaria {
+private String nome;
+private String cidade;
+private ArrayList<Veiculo> veiculos = new ArrayList<Veiculo>();
+
+public Concessionaria (String nome) {
+this.nome = nome;
+}
+
+public Concessionaria (String cidade) {
+this.cidade = cidade;
+}
+
+public void adicionaVeiculo (Veiculo vc) {
+veiculos.add(vc);
+}
+}
+
+public class Veiculo {
+private String marca;
+private String modelo;
+private double preco;
+private Concessionaria concessionaria;
+
+public Veiculo(String marca) {
+super();
+this.marca = marca;
+}
+
+public void setConcessionaria(String concessionaria) {
+this.concessionaria = concessionaria;
+}
+
+public void atualizaConcessionaria(String concessionaria) {
+this.concessionaria = new Concessionaria(concessionaria);
+}
+}
+
+public class Carro extends Veiculo {
+private String acessorios;
+private int chassi;
+
+public Carro(String marca, String acessorios) {
+super(marca);
+this.acessorios = acessorios;
+}
+
+public Carro(String acessorios, int chassi) {
+super(" ");
+this.acessorios = acessorios;
+this.chassi = chassi;
+}
+
+public Carro(String acessorios, String chassi, String modelo) {
+super(null);
+this.acessorios = acessorios;
+this.chassi = chassi;
+this.modelo = modelo;
+}
+
+public Carro(String acessorios) {
+super(null);
+this.acessorios = acessorios;
+}
+
+public String getAcessorios() {
+return acessorios;
+}
+}
