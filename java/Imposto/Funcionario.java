@@ -1,4 +1,4 @@
-package Arquivo;
+package Imposto;
 public class Funcionario {
 
 	String nome;
