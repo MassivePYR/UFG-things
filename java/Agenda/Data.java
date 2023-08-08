@@ -1,4 +1,4 @@
-package UFG-things.java.Agenda;
+package Agenda;
 
 public class Data {
     private int dia;
